@@ -58,7 +58,6 @@ function handleMutation(mutation){
   const observeTarget = document.querySelector(".numeros");
   const observer = new MutationObserver(handleMutation);
   observer.observe(observeTarget, { attributes: true });
-console.log('oi');
 }
 
 
