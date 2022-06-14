@@ -1,18 +1,27 @@
-export default function initAccordion() {
-  const quests = document.querySelectorAll('[data-accordion="on"] dt');
-  const activeClass = "ativo";
-
-  function handleClick(e){
-    e.target.classList.toggle(activeClass);
-    e.target.nextElementSibling.classList.toggle(activeClass)
+export default class Accordion{
+  constructor(list){
+    this.quests = document.querySelectorAll(list);
+    this.activeClass = 'ativo';
   }
 
-  if (quests.length) {
-  quests[0].classList.add(activeClass);
-  quests[0].nextElementSibling.classList.add(activeClass)
+   handleClick(item){
+   item.classList.toggle(this.activeClass);
+   item.nextElementSibling.classList.toggle(this.activeClass)
+  }
 
-    quests.forEach(quest =>{
-      quest.addEventListener('click',handleClick)
+  // Add event listener at the quests
+  addAccordionEvent(){
+    this.quests.forEach(quest =>{
+      quest.addEventListener('click',() => this.handleClick(quest))
     })
   }
+  //Start function
+  init(){
+    if(this.quests.length){
+      //Init first item
+      this.handleClick(this.quests[0])
+      this.addAccordionEvent();
+    }
+  }
+
 }
