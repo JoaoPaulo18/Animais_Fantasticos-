@@ -22,6 +22,7 @@ export default class Accordion{
       this.handleClick(this.quests[0])
       this.addAccordionEvent();
     }
+    return this;
   }
 
 }
