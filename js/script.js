@@ -10,10 +10,12 @@ import FetchBit from "./Modules/InitFetchBitcoin.js";
 import Accordion from "./Modules/Accordion.js";
 
 const accordion = new Accordion('#faq dt');
-console.log(accordion.quests)
 accordion.init();
+
+const tabNav = new TabNav('[data-tab="menu"] li','[data-tab="content"] section');
+tabNav.init();
+
 InitScrollAnimation();
-TabNav();
 InitModal();
 ToolTip();
 DropdownMenu();
