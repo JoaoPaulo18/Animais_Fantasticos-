@@ -1,28 +1,8 @@
 import outsideClick from "./Outside.js";
-
 export default function Menumobile() {
-  // const Menubutton = document.querySelector('[data-menu="button"]');
-  // const menuList = document.querySelector('[data-menu="list"]');
-  // const eventos = ["click", "touchstart"];
-
-  // if (Menubutton) {
-  //   function Abrir(event) {
-  //     menuList.classList.add("active");
-  //     Menubutton.classList.add("active");
-  //     outsideClick(menuList, eventos, () => {
-  //       menuList.classList.remove("active");
-  //       Menubutton.classList.remove("active");
-  //     });
-  //   }
-
-  //   eventos.forEach((evento) => Menubutton.addEventListener(evento, Abrir));
-  // }
-
-
   const Menubutton = document.querySelector('[data-menu="button"]');
   const menuList = document.querySelector('[data-menu="list"]');
   const eventos = ["click", "touchstart"];
-
 
   if(Menubutton){
     
@@ -35,10 +15,6 @@ function HandleClick(event){
 })
 }
 
-
     eventos.forEach(event => Menubutton.addEventListener(event, HandleClick));
   }
-
-
-
 }

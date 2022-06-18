@@ -1,4 +1,4 @@
-import InitScrollAnimation from "./Modules/scroll-animation.js";
+import ScrollAnimation from "./Modules/scroll-animation.js";
 import TabNav from "./Modules/Tabnavigation.js";
 import Modal from "./Modules/modal.js";
 import ToolTip from "./Modules/tooltip.js";
@@ -22,8 +22,8 @@ modal.init();
 const tooltip = new ToolTip("[data-tooltip]");
 tooltip.init();
 
-InitScrollAnimation();
-
+const scroll = new ScrollAnimation('[data-anime="scroll"]')
+scroll.init();
 DropdownMenu();
 MenuMobile();
 AnimNum();
