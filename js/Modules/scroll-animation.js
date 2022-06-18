@@ -1,36 +1,27 @@
-export default function animationScroll() {
-  // const sections = document.querySelectorAll('[data-anime="scroll"]');
-  // if (sections.length) {
-  //   const windowMetade = window.innerHeight * 0.6;
+export default class animationScroll {
+  constructor(sections){
+    this.sections = document.querySelectorAll(sections);
+    this.animaScroll = this.animaScroll.bind(this)
+  }
 
-  //   function animaScroll() {
-  //     sections.forEach((section) => {
-  //       const sectionTop = section.getBoundingClientRect().top;
-  //       const isSectionVisible = sectionTop - windowMetade < 0;
-  //       if (isSectionVisible) {
-  //         section.classList.add("ativo");
-  //       }
-  //     });
-  //   }
-  //   animaScroll();
-  //   window.addEventListener("scroll", animaScroll);
-  // }
-
-  const sections = document.querySelectorAll('[data-anime="scroll"]');
-
-  if(sections.length){
-    const windowMetade = window.innerHeight * 0.6;
-
-    function animaScroll(){
-    sections.forEach(section => {
+animaScroll(){
+  //Pegando a metade da tela do usuário 
+  const windowMetade = window.innerHeight * 0.6;
+    this.sections.forEach(section => {
+      //Pegando o quão longe 
+      //está a section do topo
       const sectionTop = section.getBoundingClientRect().top;
       const isSectionVisible = sectionTop - windowMetade < 0;
-      if(isSectionVisible) section.classList.add('ativo');
+    if(isSectionVisible) section.classList.add('ativo');
     })
   }
   
-  animaScroll();
-  window.addEventListener('scroll', animaScroll);
-}
-
+init(){
+  if(this.sections.length){
+  //Faz com que pelo menos a primeira section
+  //apareça sem haver scroll
+  this.animaScroll();
+  window.addEventListener('scroll', this.animaScroll);
+    }
+  }
 }

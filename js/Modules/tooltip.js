@@ -4,13 +4,15 @@ export default class Tooltip {
     this.MouseOver = this.MouseOver.bind(this);
   }
 
+  //Inicia os eventos de mover o mouse e de retirar o cursor
   MouseOver(e,element){
     const Box = this.CreateBox(element);
     element.addEventListener('mousemove',(evento)=> this.MouseMove(evento,Box));
-
-    element.addEventListener('mouseleave',()=> this.MouseLeave(Box,element));
-    
+    element.addEventListener('mouseleave',()=> this.MouseLeave(Box,element)); 
   }
+
+  //É verificado toda vez que movermos o mouse
+  //a posição do cursor e é jogado para o top e left da Box
   MouseMove(event,Box){
         Box.style.top = event.pageY + 20 + 'px';
         Box.style.left = event.pageX + 20 + 'px';
@@ -22,7 +24,8 @@ export default class Tooltip {
     Element.removeEventListener('mouseleave',this.MouseLeave)
 }
 
-
+//Cria uma nova Box com
+//O texto colocado dentro do elemento
   CreateBox(element){
     const box = document.createElement('div');
     box.classList.add('tooltip');
