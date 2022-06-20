@@ -24,8 +24,11 @@ tooltip.init();
 
 const scroll = new ScrollAnimation('[data-anime="scroll"]')
 scroll.init();
+
+const menuMobile = new MenuMobile('[data-menu="button"]','[data-menu="list"]',["click", "touchstart"])
+menuMobile.init();
+
 DropdownMenu();
-MenuMobile();
 AnimNum();
 initFuncionamento();
 FetchBit();

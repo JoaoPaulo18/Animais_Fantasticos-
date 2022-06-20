@@ -10,15 +10,13 @@ if(!element.hasAttribute(outside)){
   })
   element.setAttribute(outside,'');
 }
-
   function HandleClickOutside(event){
     if(!element.contains(event.target)){
       element.removeAttribute(outside);
       events.forEach((userEvent) => {
-              html.removeEventListener(userEvent, HandleClickOutside);
-            });
-          }
-          callback();
+        html.removeEventListener(userEvent, HandleClickOutside);
+      });
+      callback();
+    }
   }
-
 }
