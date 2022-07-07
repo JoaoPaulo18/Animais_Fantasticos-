@@ -17,7 +17,7 @@ export default function Fecth(){
           const divAnimal = createAnimal(animal);
           numerosGrid.appendChild(divAnimal);
         })
-        const animaNumeros = new Animais(".numero-animal span",".numeros",'ativo');
+        const animaNumeros = new Animais("[data-numero]",".numeros",'ativo');
         animaNumeros.init();
       }catch(erro){
         console.log(erro)
