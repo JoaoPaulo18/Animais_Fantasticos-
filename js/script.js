@@ -4,7 +4,7 @@ import Modal from "./Modules/modal.js";
 import ToolTip from "./Modules/tooltip.js";
 import DropdownMenu from "./Modules/dropdown-menu.js";
 import MenuMobile from "./Modules/menu-mobile.js";
-import AnimNum from "./Modules/Anima-numeros.js";
+import AnimNum from "./Modules/FetchAnimais";
 import initFuncionamento from "./Modules/funcionamento.js";
 import FetchBit from "./Modules/InitFetchBitcoin.js";
 import Accordion from "./Modules/Accordion.js";
