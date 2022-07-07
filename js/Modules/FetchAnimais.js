@@ -1,6 +1,10 @@
 import Animais from './Anima-numeros.js';
 
-export default function Fecth(){
+export default function Fecth(url,target){
+  const numerosGrid = document.querySelector(target);
+
+  //Cria a div contendo informações
+  // com o total de animais e seu tipo
     function createAnimal(Animal){
       const div = document.createElement('div');
       div.classList.add('numero-animal');
@@ -8,20 +12,32 @@ export default function Fecth(){
       return div;
     }
 
+    //Para cada animal
+    //Cria uma div com os valores
+    function preencherAnimais(animal){
+      const divAnimal = createAnimal(animal);
+      numerosGrid.appendChild(divAnimal);
+    }
+
+    //Com o DOM todo criado 
+    //Chamamos a classe para iniciar
+    //A animação dos números+
+    function animaAnimasNumeros(){
+      const animaNumeros = new Animais("[data-numero]",".numeros",'ativo');
+      animaNumeros.init();
+    }
+
+    //Puxa os animais através de um arquivo json
+    // e cria cada animal utilizando createAnimal
     async function FecthAnimal(url){
       try{
         const animaisResponse = await fetch(url);
         const animaisJSON = await animaisResponse.json();
-        const numerosGrid = document.querySelector('.numeros-grid');
-        animaisJSON.forEach(animal => {
-          const divAnimal = createAnimal(animal);
-          numerosGrid.appendChild(divAnimal);
-        })
-        const animaNumeros = new Animais(".numero-animal span",".numeros",'ativo');
-        animaNumeros.init();
+        animaisJSON.forEach(animal => preencherAnimais(animal));
+        animaAnimasNumeros();
       }catch(erro){
         console.log(erro)
       }
     }
-    FecthAnimal('.././Animais.json');
+    return FecthAnimal(url);
 }
