@@ -29,6 +29,6 @@ const menuMobile = new MenuMobile('[data-menu="button"]','[data-menu="list"]',["
 menuMobile.init();
 
 DropdownMenu();
-FetchAnimais('.././Animais.json','.numeros-grid');
 initFuncionamento();
+FetchAnimais('.././Animais.json','.numeros-grid');
 FetchBit("https://blockchain.info/ticker",".btcPreco");
