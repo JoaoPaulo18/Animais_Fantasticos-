@@ -1,5 +1,5 @@
-export default function FetchBitcoin(fetch,target) {
-  fetch(fetch)
+export default function FetchBitcoin(url,target) {
+fetch(url)
 .then(Response => Response.json())
 .then(Response => {
   const btcPreco = document.querySelector(target);
