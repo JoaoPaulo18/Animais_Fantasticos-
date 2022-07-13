@@ -6,7 +6,7 @@ import DropdownMenu from "./Modules/dropdown-menu.js";
 import MenuMobile from "./Modules/menu-mobile.js";
 import FetchAnimais from "./Modules/FetchAnimais";
 import initFuncionamento from "./Modules/funcionamento.js";
-import FetchBit from "./Modules/InitFetchBitcoin.js";
+import FetchBit from "./Modules/FetchBitcoin.js";
 import Accordion from "./Modules/Accordion.js";
 
 
@@ -31,4 +31,4 @@ menuMobile.init();
 DropdownMenu();
 FetchAnimais('.././Animais.json','.numeros-grid');
 initFuncionamento();
-FetchBit();
+FetchBit("https://blockchain.info/ticker",".btcPreco");
