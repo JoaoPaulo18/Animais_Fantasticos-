@@ -1,9 +1,11 @@
+import debounce from './Debounce.js'
+
 export default class animationScroll {
   constructor(sections){
     this.sections = document.querySelectorAll(sections);
     //Pegando a metade da tela do usuário 
     this.windowMetade = window.innerHeight * 0.6;
-    this.checkDistance = this.checkDistance.bind(this)
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50)
   }
 
   getDistance(){
@@ -18,6 +20,7 @@ export default class animationScroll {
       // Verifica se a posição do scrollY
       // É maior que a posição da seção
       checkDistance(){
+        console.log('oi')
         this.distances.forEach(item => {
           if(window.scrollY > item.sectionTop)
           item.section.classList.add('ativo')
